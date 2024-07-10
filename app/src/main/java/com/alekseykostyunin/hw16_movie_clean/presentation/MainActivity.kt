@@ -79,9 +79,7 @@ class MainActivity : AppCompatActivity() {
                     binding.textViewRating.text = rating.toString().substring(0, 3)
                     binding.textViewRating.setBackgroundResource(backgroundId)
                 }
-
             }
         }
-
     }
 }
