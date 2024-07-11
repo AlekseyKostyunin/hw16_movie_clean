@@ -2,15 +2,13 @@ package com.alekseykostyunin.hw16_movie_clean.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.alekseykostyunin.hw16_movie_clean.data.MovieRepository
-import com.alekseykostyunin.hw16_movie_clean.domain.GetMovieUseCase
+import javax.inject.Inject
 
-class MainViewModelFactory : ViewModelProvider.Factory {
+class MainViewModelFactory @Inject constructor(private val mainViewModel: MainViewModel) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if(modelClass.isAssignableFrom(MainViewModel::class.java)){
-            val movieRepository = MovieRepository()
-            return MainViewModel(GetMovieUseCase(movieRepository)) as T
+            return mainViewModel as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

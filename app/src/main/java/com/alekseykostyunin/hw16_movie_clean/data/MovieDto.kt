@@ -10,6 +10,6 @@ data class MovieDto (
     @Json(name = "name") override val title: String?,
     @Json(name = "description") override val description: String?,
     @Json(name = "year") override val year: Int?,
-    @Json(name = "poster") override val poster: PosterDto,
+    @Json(name = "poster") override val poster: PosterDto?,
     @Json(name = "rating") override val rating: RatingDto?
 ) : Movie

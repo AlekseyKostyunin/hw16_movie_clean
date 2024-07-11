@@ -1,11 +1,12 @@
 package com.alekseykostyunin.hw16_movie_clean.domain
 
+import com.alekseykostyunin.hw16_movie_clean.data.MovieDto
 import com.alekseykostyunin.hw16_movie_clean.data.MovieRepository
-import com.alekseykostyunin.hw16_movie_clean.entity.Movie
+import javax.inject.Inject
 
-class GetMovieUseCase(private val movieRepository: MovieRepository) {
+class GetMovieUseCase @Inject constructor(private val movieRepository: MovieRepository) {
 
-    suspend fun execute(): Movie {
+    suspend fun execute(): MovieDto {
         return movieRepository.getMovie()
     }
 }

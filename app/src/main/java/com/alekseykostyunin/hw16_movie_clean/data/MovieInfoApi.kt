@@ -1,6 +1,5 @@
 package com.alekseykostyunin.hw16_movie_clean.data
 
-import com.alekseykostyunin.hw16_movie_clean.entity.Movie
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Response
@@ -30,6 +29,6 @@ interface MovieInfoApi {
         "Content-Type: application/json"
     )
 
-    @GET("v1.4/movie/random?token=VRY7JS6-4TB4C8P-MR49NYR-PDYB8KE&releaseYears.start=2017&releaseYears.end=2024&notNullFields=poster.url")
-    suspend fun getMovie() : Response<MovieDto>
+    @GET("v1.4/movie/random?token=VRY7JS6-4TB4C8P-MR49NYR-PDYB8KE&notNullFields=poster.url")
+    suspend fun getMovie() : MovieDto
 }

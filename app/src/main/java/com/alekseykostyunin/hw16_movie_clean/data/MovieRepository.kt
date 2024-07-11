@@ -1,28 +1,14 @@
 package com.alekseykostyunin.hw16_movie_clean.data
 
-import android.util.Log
-import com.alekseykostyunin.hw16_movie_clean.entity.Movie
-import com.alekseykostyunin.hw16_movie_clean.presentation.State
+import javax.inject.Inject
 
-class MovieRepository() {
+class MovieRepository @Inject constructor() {
 
-    suspend fun getMovie(): Movie {
-        var movieDto: MovieDto? = null
-        try {
-            movieDto = Retrofit.movieInfoApi.getMovie().body()
+    suspend fun getMovie(): MovieDto {
+        return try {
+            Retrofit.movieInfoApi.getMovie()
         } catch (e: Exception) {
-            e.printStackTrace()
+            throw Exception("Error")
         }
-        Log.d("TEST_Movie", movieDto.toString())
-        return movieDto as Movie
-    }
-
-    suspend fun getMovie2(): Movie {
-        val movieDto = try {
-             Retrofit.movieInfoApi.getMovie().body()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return movieDto as Movie
     }
 }

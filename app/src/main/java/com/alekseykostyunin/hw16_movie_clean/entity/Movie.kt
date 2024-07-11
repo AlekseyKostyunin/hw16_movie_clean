@@ -8,6 +8,6 @@ interface Movie {
     val title: String?
     val description: String?
     val year: Int?
-    val poster: PosterDto
+    val poster: PosterDto?
     val rating: RatingDto?
 }
